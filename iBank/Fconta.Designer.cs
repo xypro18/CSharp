@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fconta));
             this.gbox_nova = new System.Windows.Forms.GroupBox();
+            this.lbl_conta = new System.Windows.Forms.Label();
             this.tbox_saldo = new System.Windows.Forms.TextBox();
             this.tbox_titular = new System.Windows.Forms.TextBox();
-            this.tbox_nconta = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,9 +52,9 @@
             // 
             // gbox_nova
             // 
+            this.gbox_nova.Controls.Add(this.lbl_conta);
             this.gbox_nova.Controls.Add(this.tbox_saldo);
             this.gbox_nova.Controls.Add(this.tbox_titular);
-            this.gbox_nova.Controls.Add(this.tbox_nconta);
             this.gbox_nova.Controls.Add(this.label3);
             this.gbox_nova.Controls.Add(this.label2);
             this.gbox_nova.Controls.Add(this.label1);
@@ -64,12 +64,22 @@
             this.gbox_nova.TabIndex = 0;
             this.gbox_nova.TabStop = false;
             // 
+            // lbl_conta
+            // 
+            this.lbl_conta.AutoSize = true;
+            this.lbl_conta.Location = new System.Drawing.Point(95, 26);
+            this.lbl_conta.Name = "lbl_conta";
+            this.lbl_conta.Size = new System.Drawing.Size(13, 13);
+            this.lbl_conta.TabIndex = 6;
+            this.lbl_conta.Text = "0";
+            // 
             // tbox_saldo
             // 
             this.tbox_saldo.Location = new System.Drawing.Point(95, 80);
             this.tbox_saldo.Name = "tbox_saldo";
-            this.tbox_saldo.Size = new System.Drawing.Size(85, 20);
+            this.tbox_saldo.Size = new System.Drawing.Size(130, 20);
             this.tbox_saldo.TabIndex = 5;
+            this.tbox_saldo.Leave += new System.EventHandler(this.tbox_saldo_Leave);
             // 
             // tbox_titular
             // 
@@ -77,15 +87,6 @@
             this.tbox_titular.Name = "tbox_titular";
             this.tbox_titular.Size = new System.Drawing.Size(258, 20);
             this.tbox_titular.TabIndex = 4;
-            // 
-            // tbox_nconta
-            // 
-            this.tbox_nconta.ForeColor = System.Drawing.Color.Red;
-            this.tbox_nconta.Location = new System.Drawing.Point(95, 24);
-            this.tbox_nconta.Name = "tbox_nconta";
-            this.tbox_nconta.Size = new System.Drawing.Size(85, 20);
-            this.tbox_nconta.TabIndex = 3;
-            this.tbox_nconta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -126,7 +127,7 @@
             this.gbox_encerrar.Controls.Add(this.label5);
             this.gbox_encerrar.Controls.Add(this.label6);
             this.gbox_encerrar.Controls.Add(this.chbox_desativa);
-            this.gbox_encerrar.Location = new System.Drawing.Point(13, 199);
+            this.gbox_encerrar.Location = new System.Drawing.Point(13, 5);
             this.gbox_encerrar.Name = "gbox_encerrar";
             this.gbox_encerrar.Size = new System.Drawing.Size(360, 132);
             this.gbox_encerrar.TabIndex = 1;
@@ -139,6 +140,7 @@
             this.cbox_conta.Name = "cbox_conta";
             this.cbox_conta.Size = new System.Drawing.Size(121, 21);
             this.cbox_conta.TabIndex = 19;
+            this.cbox_conta.SelectedIndexChanged += new System.EventHandler(this.cbox_conta_SelectedIndexChanged);
             // 
             // tbox_saldo2
             // 
@@ -151,6 +153,7 @@
             // 
             this.tbox_titular2.Location = new System.Drawing.Point(86, 55);
             this.tbox_titular2.Name = "tbox_titular2";
+            this.tbox_titular2.ReadOnly = true;
             this.tbox_titular2.Size = new System.Drawing.Size(258, 20);
             this.tbox_titular2.TabIndex = 17;
             // 
@@ -188,6 +191,7 @@
             // 
             this.chbox_desativa.AutoSize = true;
             this.chbox_desativa.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chbox_desativa.Enabled = false;
             this.chbox_desativa.Location = new System.Drawing.Point(275, 87);
             this.chbox_desativa.Name = "chbox_desativa";
             this.chbox_desativa.Size = new System.Drawing.Size(68, 17);
@@ -204,6 +208,7 @@
             this.btn_ok.Size = new System.Drawing.Size(65, 55);
             this.btn_ok.TabIndex = 3;
             this.btn_ok.UseVisualStyleBackColor = true;
+            this.btn_ok.Visible = false;
             this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
             // 
             // btn_cancel
@@ -215,13 +220,14 @@
             this.btn_cancel.Size = new System.Drawing.Size(65, 55);
             this.btn_cancel.TabIndex = 2;
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Visible = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // Fconta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 343);
+            this.ClientSize = new System.Drawing.Size(385, 207);
             this.Controls.Add(this.btn_ok);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.gbox_encerrar);
@@ -247,7 +253,6 @@
         private System.Windows.Forms.GroupBox gbox_nova;
         private System.Windows.Forms.TextBox tbox_saldo;
         private System.Windows.Forms.TextBox tbox_titular;
-        private System.Windows.Forms.TextBox tbox_nconta;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -261,5 +266,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbox_conta;
+        private System.Windows.Forms.Label lbl_conta;
     }
 }

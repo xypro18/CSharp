@@ -40,5 +40,12 @@ namespace iBank
         {
 
         }
+
+        private void encerrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            iBank.Program.XOpMenu = 1; //encerrar conta
+            Fconta Form2 = new Fconta();
+            Form2.ShowDialog();
+        }
     }
 }

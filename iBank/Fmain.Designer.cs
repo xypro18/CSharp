@@ -86,6 +86,7 @@
             this.encerrarToolStripMenuItem.Name = "encerrarToolStripMenuItem";
             this.encerrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.encerrarToolStripMenuItem.Text = "&Encerrar";
+            this.encerrarToolStripMenuItem.Click += new System.EventHandler(this.encerrarToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 

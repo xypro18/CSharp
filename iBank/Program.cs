@@ -20,6 +20,13 @@ namespace iBank
         [STAThread]
         static void Main()
         {
+            //ArrayContas = new Conta[5];
+
+            //for (int i = 0; i < ArrayContas.Length; i++)
+            //{
+            //    iBank.Program.ArrayContas[i] = new Conta();
+            //    iBank.Program.ArrayContas[i].Nconta = i;
+            //}
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Fmain());
