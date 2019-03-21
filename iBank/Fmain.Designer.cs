@@ -77,26 +77,26 @@
             // novaToolStripMenuItem
             // 
             this.novaToolStripMenuItem.Name = "novaToolStripMenuItem";
-            this.novaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.novaToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.novaToolStripMenuItem.Text = "&Nova";
             this.novaToolStripMenuItem.Click += new System.EventHandler(this.novaToolStripMenuItem_Click);
             // 
             // encerrarToolStripMenuItem
             // 
             this.encerrarToolStripMenuItem.Name = "encerrarToolStripMenuItem";
-            this.encerrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.encerrarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.encerrarToolStripMenuItem.Text = "&Encerrar";
             this.encerrarToolStripMenuItem.Click += new System.EventHandler(this.encerrarToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(114, 6);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.sairToolStripMenuItem.Text = "&Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -114,12 +114,14 @@
             this.levantarToolStripMenuItem.Name = "levantarToolStripMenuItem";
             this.levantarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.levantarToolStripMenuItem.Text = "&Levantamento";
+            this.levantarToolStripMenuItem.Click += new System.EventHandler(this.levantarToolStripMenuItem_Click);
             // 
             // depositarToolStripMenuItem
             // 
             this.depositarToolStripMenuItem.Name = "depositarToolStripMenuItem";
             this.depositarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.depositarToolStripMenuItem.Text = "&Deposito";
+            this.depositarToolStripMenuItem.Click += new System.EventHandler(this.depositarToolStripMenuItem_Click);
             // 
             // ficheiroToolStripMenuItem
             // 

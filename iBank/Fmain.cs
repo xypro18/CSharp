@@ -47,5 +47,19 @@ namespace iBank
             Fconta Form2 = new Fconta();
             Form2.ShowDialog();
         }
+
+        private void levantarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            iBank.Program.XOpMenu = 2; //levantamento
+            FormLev frm = new FormLev();
+            frm.ShowDialog();
+        }
+
+        private void depositarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            iBank.Program.XOpMenu = 3; //deposito
+            FormLev frm = new FormLev();
+            frm.ShowDialog();
+        }
     }
 }

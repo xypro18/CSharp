@@ -203,9 +203,9 @@
             // 
             this.btn_ok.BackgroundImage = global::iBank.Properties.Resources.icons8_ok_96;
             this.btn_ok.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_ok.Location = new System.Drawing.Point(308, 138);
+            this.btn_ok.Location = new System.Drawing.Point(318, 143);
             this.btn_ok.Name = "btn_ok";
-            this.btn_ok.Size = new System.Drawing.Size(65, 55);
+            this.btn_ok.Size = new System.Drawing.Size(55, 55);
             this.btn_ok.TabIndex = 3;
             this.btn_ok.UseVisualStyleBackColor = true;
             this.btn_ok.Visible = false;
@@ -215,9 +215,9 @@
             // 
             this.btn_cancel.BackgroundImage = global::iBank.Properties.Resources.Cancelar_1;
             this.btn_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_cancel.Location = new System.Drawing.Point(237, 138);
+            this.btn_cancel.Location = new System.Drawing.Point(237, 143);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(65, 55);
+            this.btn_cancel.Size = new System.Drawing.Size(55, 55);
             this.btn_cancel.TabIndex = 2;
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Visible = false;
@@ -227,7 +227,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 207);
+            this.ClientSize = new System.Drawing.Size(385, 212);
             this.Controls.Add(this.btn_ok);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.gbox_encerrar);

@@ -61,8 +61,6 @@ namespace iBank
                         cbox_conta.Items.Add(iBank.Program.ArrayContas[i].Nconta);
                     }
                 }
-
-
             }
         }
 
