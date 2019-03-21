@@ -168,6 +168,7 @@
             // 
             // tb_valor
             // 
+            this.tb_valor.Enabled = false;
             this.tb_valor.Location = new System.Drawing.Point(132, 119);
             this.tb_valor.Name = "tb_valor";
             this.tb_valor.Size = new System.Drawing.Size(161, 20);

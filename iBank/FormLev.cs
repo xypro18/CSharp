@@ -82,6 +82,7 @@ namespace iBank
                     tb_titular.Text = iBank.Program.ArrayContas[i].Titular;
                     tb_saldo.Text = Convert.ToString(iBank.Program.ArrayContas[i].Saldo);
                     btn_cancel.Visible = true;
+                    tb_valor.Enabled = true;
                     break;
                 }
 
