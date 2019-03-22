@@ -17,6 +17,8 @@ namespace iBank
 
         public static Conta[] ArrayContas = new Conta[0]; //Array de contas
 
+        public static string XPath = @"C:\Users\mod08\Documents\CR\file01.txt";
+
         [STAThread]
         static void Main()
         {

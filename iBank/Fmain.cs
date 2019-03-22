@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Xml;
 
 namespace iBank
 {
     public partial class Fmain : Form
     {
+        StreamWriter XFile;
         public Fmain()
         {
             InitializeComponent();
@@ -60,6 +63,83 @@ namespace iBank
             iBank.Program.XOpMenu = 3; //deposito
             FormLev frm = new FormLev();
             frm.ShowDialog();
+        }
+
+        private void Fmain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void criarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (File.Exists(iBank.Program.XPath))
+            {
+                MessageBox.Show("O ficheiro " + iBank.Program.XPath + " já existe.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }else
+            {
+                XFile = File.CreateText(iBank.Program.XPath);
+                MessageBox.Show("Foi criado o ficheiro: " + iBank.Program.XPath, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                XFile.Close();
+            }
+        }
+
+        private void gravarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (!File.Exists(iBank.Program.XPath))
+            {
+                MessageBox.Show("O ficheiro: " + iBank.Program.XPath + " não existe.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int xLenght = iBank.Program.ArrayContas.Length;
+
+            if (xLenght == 0)
+            {
+                MessageBox.Show("Não existe informação para gravar!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } else {
+                using (XFile = File.CreateText(iBank.Program.XPath))
+                {
+                    for (int i = 0; i < xLenght; i++)
+                    {
+                        XFile.Write(iBank.Program.ArrayContas[i].Nconta + ";");
+                        XFile.Write(iBank.Program.ArrayContas[i].Titular + ";");
+                        XFile.Write(iBank.Program.ArrayContas[i].Saldo + ";");
+                        XFile.WriteLine(iBank.Program.ArrayContas[i].Desativa + ";");
+                    }
+                }
+                MessageBox.Show("Foram gravados " + iBank.Program.ArrayContas.Length + " contas no ficheiro txt.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(File.Exists(iBank.Program.XPath))
+            {
+                using (StreamReader file = File.OpenText(iBank.Program.XPath))
+                {
+                    iBank.Program.ArrayContas = new Conta[0];
+                       while (!file.EndOfStream)
+                    {
+                        int xLength = iBank.Program.ArrayContas.Length;
+                        Array.Resize(ref iBank.Program.ArrayContas, xLength + 1);
+                        iBank.Program.ArrayContas[xLength] = new Conta();
+
+                        string[] line = file.ReadLine().Split(';');
+                        iBank.Program.ArrayContas[xLength].Nconta = Convert.ToInt32(line[0]);                        
+                        iBank.Program.ArrayContas[xLength].Titular = line[1];
+                        iBank.Program.ArrayContas[xLength].Saldo = Convert.ToDouble(line[2]);
+                        iBank.Program.ArrayContas[xLength].Desativa = Convert.ToBoolean(line[3]);
+                        xLength++;
+                    }
+                }
+                MessageBox.Show("Ficheiro " + iBank.Program.XPath + " carregado com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            } else
+            {
+                MessageBox.Show("Não foi encontrado o fichiero: " + iBank.Program.XPath, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

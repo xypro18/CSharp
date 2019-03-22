@@ -52,7 +52,7 @@ namespace iBank
             {
                 rb_lev.Select();
             }
-            else
+            else if (iBank.Program.XOpMenu == 3)
             {
                 rb_dep.Select();
             }
@@ -63,12 +63,14 @@ namespace iBank
         {
             gb_lev.Text = "Levantamento";
             lbl_tmov.Text = "Valor a levantar";
+            iBank.Program.XOpMenu = 2;
         }
 
         private void rb_dep_CheckedChanged(object sender, EventArgs e)
         {
             gb_lev.Text = "Depósito";
             lbl_tmov.Text = "Valor a depositar";
+            iBank.Program.XOpMenu = 3;
         }
 
         private void cb_conta_SelectedIndexChanged(object sender, EventArgs e)
@@ -91,7 +93,27 @@ namespace iBank
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            
+            double XSActual = Convert.ToDouble(tb_saldo.Text);
+            double XValor = Convert.ToDouble(tb_valor.Text);
+            string XMensagem = "";
+            if(iBank.Program.XOpMenu == 2)  //Levantamento
+            {
+                if(XValor > XSActual)
+                {
+                    MessageBox.Show("Não tem saldo para levantar o montante pretendido!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                } else
+                {
+                    iBank.Program.ArrayContas[xPosicao].LevDinheiro(XValor);
+                    XMensagem = "O Levantamento de " + Convert.ToString(XValor) + "€ foi executado com sucesso.";
+                }
+            }else if (iBank.Program.XOpMenu == 3)  //Depósito
+            {
+                iBank.Program.ArrayContas[xPosicao].DepDinheiro(XValor);
+                XMensagem = "O Depósito de " + Convert.ToString(XValor) + "€ foi executado com sucesso.";
+            }
+            MessageBox.Show(XMensagem, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
 
         private void tb_lev_Leave(object sender, EventArgs e)

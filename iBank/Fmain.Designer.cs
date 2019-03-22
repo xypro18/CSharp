@@ -77,26 +77,26 @@
             // novaToolStripMenuItem
             // 
             this.novaToolStripMenuItem.Name = "novaToolStripMenuItem";
-            this.novaToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.novaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.novaToolStripMenuItem.Text = "&Nova";
             this.novaToolStripMenuItem.Click += new System.EventHandler(this.novaToolStripMenuItem_Click);
             // 
             // encerrarToolStripMenuItem
             // 
             this.encerrarToolStripMenuItem.Name = "encerrarToolStripMenuItem";
-            this.encerrarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.encerrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.encerrarToolStripMenuItem.Text = "&Encerrar";
             this.encerrarToolStripMenuItem.Click += new System.EventHandler(this.encerrarToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(114, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sairToolStripMenuItem.Text = "&Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -141,12 +141,14 @@
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
             this.abrirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.abrirToolStripMenuItem.Text = "Abrir";
+            this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
             // 
             // gravarToolStripMenuItem
             // 
             this.gravarToolStripMenuItem.Name = "gravarToolStripMenuItem";
             this.gravarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.gravarToolStripMenuItem.Text = "Gravar";
+            this.gravarToolStripMenuItem.Click += new System.EventHandler(this.gravarToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -158,6 +160,7 @@
             this.criarToolStripMenuItem.Name = "criarToolStripMenuItem";
             this.criarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.criarToolStripMenuItem.Text = "Criar";
+            this.criarToolStripMenuItem.Click += new System.EventHandler(this.criarToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -180,7 +183,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 419);
+            this.ClientSize = new System.Drawing.Size(726, 346);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -191,6 +194,7 @@
             this.Name = "Fmain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "iBank";
+            this.Load += new System.EventHandler(this.Fmain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
