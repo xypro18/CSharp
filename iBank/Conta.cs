@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace iBank
 {
-    class Conta
+    public class Conta
     {
         public int Nconta;
         public string Titular;

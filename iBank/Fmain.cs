@@ -24,6 +24,7 @@ namespace iBank
 
         private void novaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            tsStatusLabel.Text = "Nova Conta";
             iBank.Program.XOpMenu = 0; //nova conta
             Fconta Form2 = new Fconta();
             Form2.ShowDialog();
@@ -47,6 +48,7 @@ namespace iBank
 
         private void encerrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            tsStatusLabel.Text = "Encerrar Conta";
             iBank.Program.XOpMenu = 1; //encerrar conta
             Fconta Form2 = new Fconta();
             Form2.ShowDialog();
@@ -54,6 +56,7 @@ namespace iBank
 
         private void levantarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            tsStatusLabel.Text = "Levantamento";
             iBank.Program.XOpMenu = 2; //levantamento
             FormLev frm = new FormLev();
             frm.ShowDialog();
@@ -61,6 +64,7 @@ namespace iBank
 
         private void depositarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            tsStatusLabel.Text = "Depósito";
             iBank.Program.XOpMenu = 3; //deposito
             FormLev frm = new FormLev();
             frm.ShowDialog();
@@ -73,7 +77,7 @@ namespace iBank
 
         private void criarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            tsStatusLabel.Text = "Criar ficheiro";
             if (File.Exists(iBank.Program.XPath))
             {
                 MessageBox.Show("O ficheiro " + iBank.Program.XPath + " já existe.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -87,7 +91,7 @@ namespace iBank
 
         private void gravarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            tsStatusLabel.Text = "Gravar Ficheiro";
             if (!File.Exists(iBank.Program.XPath))
             {
                 MessageBox.Show("O ficheiro: " + iBank.Program.XPath + " não existe.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -116,7 +120,8 @@ namespace iBank
 
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(File.Exists(iBank.Program.XPath))
+            tsStatusLabel.Text = "Abrir ficheiro";
+            if (File.Exists(iBank.Program.XPath))
             {
                 int xLength = 0;
                 using (StreamReader file = File.OpenText(iBank.Program.XPath))
@@ -146,6 +151,7 @@ namespace iBank
 
         private void gerarXMLToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            tsStatusLabel.Text = "Gerar ficheiro de xml";
             gerarXML3();
         }
 
@@ -166,10 +172,7 @@ namespace iBank
                     using (XmlWriter writer = XmlWriter.Create(xPath, xSettings))
                     {
                         xsSubmit.Serialize(writer, Program.ArrayContas);
-                       // writer.Writ
-                    }
-                
-
+                    }   
 
                 MessageBox.Show("Foram gravadas " + Program.ArrayContas.Length + " contas no ficheiro.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
